@@ -53,7 +53,7 @@ var cy = cytoscape({
     {
       selector: 'node',
       style: {
-        shape: 'circle',
+        shape: 'square',
         'background-color': 'red',
         'label': 'data(id)'
       }
@@ -70,7 +70,7 @@ var cy = cytoscape({
       selector: 'edge',
       style: {
         'width': 3,
-        'line-color': 'aaa',
+        'line-color': '#aaa',
         'curve-style': 'straight',
         'target-arrow-shape': 'vee'
       }
