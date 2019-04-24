@@ -19,7 +19,13 @@ function resetDraw() {
 }
 
 function test() {
-    cy.$('#a-b').unselect()
+    
+  var layout = cy.layout({
+        name: 'cola'
+  });
+      
+  layout.run();
+
 }
 
 
