@@ -14,35 +14,35 @@ var cy = cytoscape({
   // edges
   {
     data: {
-      id: 'ab',
+      id: 'a-b',
       source: 'a',
       target: 'b'
     }
   },
   {
     data: {
-      id: 'cd',
+      id: 'c-d',
       source: 'c',
       target: 'd'
     }
   },
   {
     data: {
-      id: 'ef',
+      id: 'e-f',
       source: 'e',
       target: 'f'
     }
   },
   {
     data: {
-      id: 'ac',
+      id: 'a-c',
       source: 'a',
       target: 'c'
     }
   },
   {
     data: {
-      id: 'be',
+      id: 'b-e',
       source: 'b',
       target: 'e'
     }
