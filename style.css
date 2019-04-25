@@ -2,7 +2,7 @@ body {
 			font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
 			font-size: 14px
 		}
-    
+
 #cy {
   width: 800px;
   height: 800px;
@@ -11,3 +11,10 @@ body {
   border-width: 1px;
   border-color: black;
 }
+
+.icon-text {
+        font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+        font-size: 12px;
+        display: block;
+				text-align: left;
+    }

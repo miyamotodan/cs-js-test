@@ -18,12 +18,12 @@ function resetDraw() {
     sourceNode = null;
 }
 
-function test() {
-    
+function resetLayout() {
+
   var layout = cy.layout({
-        name: 'cola'
+        name: 'grid'
   });
-      
+
   layout.run();
 
 }
@@ -33,15 +33,15 @@ function test() {
 
 
 
-  //lista dei nodi 
+  //lista dei nodi
   //console.log(cy.nodes());
-          
+
   //lista degli archi
   //console.log(cy.edges());
 
 
   /*
-  var nodeId = randomize(1000,2000) + "";  
+  var nodeId = randomize(1000,2000) + "";
           var edgeId = ele.id()+nodeId;
           var eles = cy.add([
             { group: 'nodes', data: { id: nodeId }, renderedPosition: { x: 100, y: 100 } },
@@ -75,6 +75,6 @@ for (var i = 0; i < 10; i++) {
 var layout = cy.layout({
       name: layout
 });
-    
+
 layout.run();
 */
