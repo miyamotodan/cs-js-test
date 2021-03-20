@@ -80,9 +80,29 @@
                         }
                     });
 
+                    /**
+                     * click del mouse su un elemento o sul fondo
+                     */
+                    cy.on('tap', function (event) {
+                        // target holds a reference to the originator
+                        // of the event (core or element)
+                        var evtTarget = event.target;
+
+                        //non si capisce perché this è diventato quello che doveva essere this.cy
+                        //probabilmente perché sto dentro ad una funzione legata a this.cy
+                        if (evtTarget === this) {
+                            console.log('tap on background');
+                        } else {
+                            console.log('tap on ', evtTarget);
+                        }
+
+                    });
+
+
                 });
 
         });
+
     </script>
 </head>
 
