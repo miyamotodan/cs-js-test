@@ -94,8 +94,8 @@ var cy = cytoscape({
   pan: { x: 0, y: 0 },
 
   // interaction options:
-  minZoom: 1e-50,
-  maxZoom: 1e50,
+  minZoom: 0.1,
+  maxZoom: 5.0,
   zoomingEnabled: true,
   userZoomingEnabled: true,
   panningEnabled: true,
@@ -116,7 +116,7 @@ var cy = cytoscape({
   textureOnViewport: false,
   motionBlur: false,
   motionBlurOpacity: 0.2,
-  wheelSensitivity: 1,
+  wheelSensitivity: 0.2,
   pixelRatio: 'auto'
 
 });
