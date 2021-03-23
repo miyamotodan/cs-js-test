@@ -15,7 +15,7 @@
     <!-- for testing with local version of cytoscape.js -->
     <!--<script src="../cytoscape.js/build/cytoscape.js"></script>-->
 
-    <script src="cytoscape-graphml.js"></script>
+    <script src="cytoscape-graphml-ddp.js"></script>
 
     <style>
         body {
@@ -55,7 +55,17 @@
                             {
                                 selector: 'node',
                                 style: {
-                                    'content': 'data(id)'
+                                    'content': 'data(d5)',
+                                    'label': 'data(d5)',
+                                    'text-opacity': 1,
+                                    'text-valign': 'center',
+                                    'text-halign': 'center',
+                                    'text-wrap': 'wrap',
+                                    'font-size': 12,
+                                    'background-color': '#AAA',
+                                    'shape': 'data(class)',
+                                    'width': 'data(width)' ,
+                                    'height': 'data(height)'
                                 }
                             },
 
@@ -74,7 +84,7 @@
                             }
                         ],
                         ready: function () {
-                            this.graphml({ layoutBy: 'cose' });
+                            this.graphml({ layoutBy: 'preset' });
                             this.graphml(graphStr);
                             //console.log(this.graphml());
                         }
@@ -93,7 +103,7 @@
                         if (evtTarget === this) {
                             console.log('tap on background');
                         } else {
-                            console.log('tap on ', evtTarget);
+                            console.log('tap on ', evtTarget.data());
                         }
 
                     });
