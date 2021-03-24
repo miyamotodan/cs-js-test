@@ -135,8 +135,8 @@
               $data.find('y\\:Geometry').each(function() {
                 settings["data"]["width"] = $(this).attr('width');
                 settings["data"]["height"] = $(this).attr('height');
-                settings["position"]["x"] = $(this).attr('x')/1.5;
-                settings["position"]["y"] = $(this).attr('y')/1.5;
+                settings["position"]["x"] = $(this).attr('x')/1;
+                settings["position"]["y"] = $(this).attr('y')/1;
                 
               });
               //fine modifica
