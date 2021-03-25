@@ -113,6 +113,7 @@
             var settings = {
               data: { id: $node.attr("id") },
               css: {},
+              classes : "",
               position: {}
             };
 
@@ -125,11 +126,11 @@
               //inizio modifica
               settings["data"][$data.attr("key")] = $data.text().trim(); //elimino i gli spazi e \n
 
-              console.log($node);
-              console.log($data);
+              //console.log($node);
+              //console.log($data);
               
               $data.find('y\\:Shape').each(function() {
-                settings["data"]["class"] = $(this).attr('type');
+                settings["classes"] = $(this).attr('type');
               });
 
               $data.find('y\\:Geometry').each(function() {
@@ -143,10 +144,13 @@
 
             });
 
+            //console.log("settings", settings);
+
             cy.add({
               group: "nodes",
               data: settings.data,
               css: settings.css,
+              classes: settings.classes,
               position: settings.position
             });
 

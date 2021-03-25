@@ -1,4 +1,3 @@
-var layout = 'cola'; //cola grid
 var cy = cytoscape({
 
   container: document.getElementById('cy'), // container to render in
@@ -84,11 +83,6 @@ var cy = cytoscape({
     }
   ],
 
-  layout: {
-    name: layout,
-    rows: 1
-  },
-
   // initial viewport state:
   zoom: 1,
   pan: { x: 0, y: 0 },
@@ -120,3 +114,4 @@ var cy = cytoscape({
   pixelRatio: 'auto'
 
 });
+

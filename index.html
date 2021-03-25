@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>cytoscape test</title>
 
-    <link href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<head>
+  <meta charset="utf-8">
+  <title>cytoscape test</title>
 
-    <script src="http://marvl.infotech.monash.edu/webcola/cola.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.5.3/cytoscape.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.3.0/cytoscape-cola.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/cytoscape-cxtmenu@3.1.0/cytoscape-cxtmenu.min.js"></script>
+  <link href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <div id="cy">
-    </div>
-    <script src="/util.js"></script>
-    <script src="/graph.js"></script>
-    <script src="/script.js"></script>
-    <script src="/ctxmenu.js"></script>
-    test cytoscape.js
+  <script src="http://marvl.infotech.monash.edu/webcola/cola.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.5.3/cytoscape.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.3.0/cytoscape-cola.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-cxtmenu@3.1.0/cytoscape-cxtmenu.min.js"></script>
 
-    <button onclick="test()">Layout</button>
+  <link rel="stylesheet" href="/style.css" />
+</head>
 
-  </body>
+<body>
+  <div id="cy" style="width:720px; height: 500px;">
+  </div>
+  <script src="/util.js"></script>
+  <script src="/graph.js"></script>
+  <script src="/script.js"></script>
+  <script src="/ctxmenu.js"></script>
+  set layout 
+  <form id='mainform' onchange="setLayout()">
+    <select id='layouts'>
+      <option value='grid' selected>grid</option>
+      <option value='circle'>circle</option>
+      <option value='random'>random</option>
+      <option value='cose'>cose</option>
+    </select>
+  </form>
+</body>
+
 </html>

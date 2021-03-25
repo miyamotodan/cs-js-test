@@ -5,8 +5,8 @@ function randomize(a, b) {
 
 //deseleziona un nodo
 function deselectNode(n) {
-    if (n!=null)
-        setTimeout(function(){
+    if (n != null)
+        setTimeout(function () {
             n.unselect();
         }, 25);
 }
@@ -14,67 +14,49 @@ function deselectNode(n) {
 //resetta la costruzione dell'arco
 function resetDraw() {
     drawMode = false;
-    if (sourceNode!=null) deselectNode(sourceNode);
+    if (sourceNode != null) deselectNode(sourceNode);
     sourceNode = null;
 }
 
+var lay = {
+    name: 'grid'
+};
+
 function resetLayout() {
 
-  var layout = cy.layout({
-        name: 'grid'
-  });
-
-  layout.run();
+    cy.layout(lay).run();
 
 }
 
+function setLayout() {
 
-
-
-
-
-  //lista dei nodi
-  //console.log(cy.nodes());
-
-  //lista degli archi
-  //console.log(cy.edges());
-
-
-  /*
-  var nodeId = randomize(1000,2000) + "";
-          var edgeId = ele.id()+nodeId;
-          var eles = cy.add([
-            { group: 'nodes', data: { id: nodeId }, renderedPosition: { x: 100, y: 100 } },
-            { group: 'edges', data: { id: edgeId, source: ele.id(), target: nodeId } }
-          ]);
-*/
-
-//mostra tutto il grafo
-    //cy.fit();
-    //console.log(cy.json());
-
-
-
-    /*
-//aggiunge 10 nodi che puntano ad 'a' e 'b'
-for (var i = 0; i < 10; i++) {
-    cy.add({
-        data: { id: 'node' + i, weight: i*10 }
-        }
-    );
-    var source = 'node' + i;
-    cy.add({
-        data: {
-            id: i+'-'+(i % 2 == 0 ? 'a' : 'b'),
-            source: source,
-            target: (i % 2 == 0 ? 'a' : 'b')
-        }
-    });
+    let i = document.getElementById("layouts").selectedIndex;
+    let name = document.getElementById("layouts").options[i].value;
+    console.log(name);
+    switch (name) {
+        case 'grid':
+            lay = {
+                name: 'grid'
+            };
+            break;
+        case 'circle':
+            lay = {
+                name: 'circle',
+                radius: 100
+            };
+            break;
+        case 'random':
+            lay = {
+                name: 'random'
+            };
+            break;
+        case 'cose':
+            lay = {
+                name: 'cose'
+            };
+            break;
+        default:
+            break;
+    }
+    console.log(lay);
 }
-
-var layout = cy.layout({
-      name: layout
-});
-
-layout.run();
-*/

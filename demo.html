@@ -65,16 +65,48 @@
                                 style: {
                                     'content': 'data(d5)',
                                     'label': 'data(d5)',
+                                    'width': 'data(width)',
+                                    'height': 'data(height)',
+                                    'text-opacity': 1,
+                                    'text-valign': 'center',
+                                    'text-halign': 'center',
+                                    'text-wrap': 'wrap',
+                                    'font-size': 12
+                                }
+                            },
+
+                            {
+                                selector: '.rectangle',
+                                style: {
+                                    'background-color': 'yellow',
+                                    'shape': 'rectangle',
+                                    'width': 1,
+                                    'height': 1
+                                }
+                            },
+
+                            {
+                                selector: '.ellipse',
+                                style: {
+                                    'shape': 'ellipse',
+                                    'background-color': 'fuchsia',
+                                    'border-color': 'balck',
+                                    'border-width': 3
+                                }
+                            },
+
+                            {
+                                selector: '.roundrectangle',
+                                style: {
                                     'text-opacity': 1,
                                     'text-valign': 'center',
                                     'text-halign': 'center',
                                     'text-wrap': 'wrap',
                                     'font-size': 12,
                                     'background-color': 'yellow',
-                                    'border-color': 'black',
-                                    'shape': 'data(class)',
-                                    'width': 'data(width)' ,
-                                    'height': 'data(height)'
+                                    'border-color': 'blue',
+                                    'border-width': 1,
+                                    'shape': 'round-rectangle'
                                 }
                             },
 
@@ -98,10 +130,42 @@
                                 }
                             }
                         ],
+
+                        // initial viewport state:
+                        zoom: 1,
+                        pan: { x: 0, y: 0 },
+
+                        // interaction options:
+                        minZoom: 0.1,
+                        maxZoom: 5.0,
+                        zoomingEnabled: true,
+                        userZoomingEnabled: true,
+                        panningEnabled: true,
+                        userPanningEnabled: true,
+                        boxSelectionEnabled: false,
+                        selectionType: 'single',
+                        touchTapThreshold: 8,
+                        desktopTapThreshold: 4,
+                        autolock: false,
+                        autoungrabify: false,
+                        autounselectify: false,
+
+                        // rendering options:
+                        headless: false,
+                        styleEnabled: true,
+                        hideEdgesOnViewport: false,
+                        hideLabelsOnViewport: false,
+                        textureOnViewport: false,
+                        motionBlur: false,
+                        motionBlurOpacity: 0.2,
+                        wheelSensitivity: 0.2,
+                        pixelRatio: 'auto',
+
+                        layout: {
+                            name: 'cose'
+                        },
+
                         ready: function () {
-                            this.graphml({ layoutBy: 'preset' });
-                            //this.graphml({ layoutBy: 'dagre' });
-                            //this.graphml({ layoutBy: 'elk' });
                             this.graphml(graphStr);
                             //console.log(this.graphml());
                         }
