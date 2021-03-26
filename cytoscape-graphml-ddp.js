@@ -123,7 +123,6 @@
             $node.children('data').each(function () {
               var $data = $(this);
               
-              //inizio modifica
               settings["data"][$data.attr("key")] = $data.text().trim(); //elimino i gli spazi e \n
 
               //console.log($node);
@@ -131,20 +130,19 @@
               
               $data.find('y\\:Shape').each(function() {
                 settings["classes"] = $(this).attr('type');
+                settings["data"]["classes"] = $(this).attr('type'); //per verifica
               });
 
               $data.find('y\\:Geometry').each(function() {
                 settings["data"]["width"] = $(this).attr('width');
                 settings["data"]["height"] = $(this).attr('height');
-                settings["position"]["x"] = $(this).attr('x')/1;
-                settings["position"]["y"] = $(this).attr('y')/1;
-                
+                settings["position"]["x"] = $(this).attr('x')*1;
+                settings["position"]["y"] = $(this).attr('y')*1;
               });
-              //fine modifica
 
             });
 
-            //console.log("settings", settings);
+            console.log("settings", settings);
 
             cy.add({
               group: "nodes",
@@ -184,7 +182,7 @@
 
               $edge.find('data').each(function () {
                 var $data = $(this);
-                settings["data"][$data.attr("key")] = $data.text();
+                settings["data"][$data.attr("key")] = $data.text().trim(); //elimino i gli spazi e \n
               });
 
               cy.add({

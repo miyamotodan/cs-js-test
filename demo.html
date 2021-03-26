@@ -50,7 +50,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            fetch('http://127.0.0.1:5500/example-graffoo/rdfdata-template.graphml')
+            fetch('http://127.0.0.1:5500/example-graffoo/ontology-full-template.graphml')
                 .then(response => response.text())
                 .then((data) => {
 
@@ -98,15 +98,20 @@
                             {
                                 selector: '.roundrectangle',
                                 style: {
-                                    'text-opacity': 1,
-                                    'text-valign': 'center',
-                                    'text-halign': 'center',
-                                    'text-wrap': 'wrap',
-                                    'font-size': 12,
                                     'background-color': 'yellow',
                                     'border-color': 'blue',
                                     'border-width': 1,
                                     'shape': 'round-rectangle'
+                                }
+                            },
+
+                            {
+                                selector: '.parallelogram',
+                                style: {
+                                    'background-color': 'lightgreen',
+                                    'border-color': 'black',
+                                    'border-width': 1,
+                                    'shape': 'rhomboid'
                                 }
                             },
 
@@ -116,8 +121,7 @@
                                     'target-arrow-shape': 'triangle',
                                     'label': 'data(d9)',
                                     'width': 3,
-                                    'curve-style': 'taxi',
-                                    'taxi-direction': 'vertical',
+                                    'curve-style': 'bezier',
                                     'line-color': 'gray',
                                     'target-arrow-color': 'black'
                                 }
@@ -161,13 +165,8 @@
                         wheelSensitivity: 0.2,
                         pixelRatio: 'auto',
 
-                        layout: {
-                            name: 'cose'
-                        },
-
                         ready: function () {
-                            this.graphml(graphStr);
-                            //console.log(this.graphml());
+                            this.graphml(graphStr); //carica il grafo graphml
                         }
                     });
 
