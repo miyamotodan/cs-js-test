@@ -70,13 +70,14 @@ var cy = cytoscape({
       style: {
         'width': 3,
         'line-color': '#aaa',
-        'curve-style': 'straight',
-        'target-arrow-shape': 'vee'
+        'curve-style': 'bezier',
+        'target-arrow-shape': 'triangle'
       }
     },
     {
       selector: 'edge:selected',
       style: {
+          'width': 6,
           'line-color': 'black',
           'target-arrow-color': 'black'
       }

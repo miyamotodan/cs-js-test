@@ -55,6 +55,11 @@ function setLayout() {
                 name: 'cose'
             };
             break;
+        case 'cola':
+            lay = {
+                name: 'cola'
+            };
+            break;
         default:
             break;
     }
