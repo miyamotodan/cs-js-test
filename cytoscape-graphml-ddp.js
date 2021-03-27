@@ -142,7 +142,7 @@
 
             });
 
-            console.log("settings", settings);
+            //console.log("settings", settings);
 
             cy.add({
               group: "nodes",

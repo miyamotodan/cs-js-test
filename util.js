@@ -65,3 +65,22 @@ function setLayout() {
     }
     console.log(lay);
 }
+
+function loadGraphml () {
+
+    url = 'http://127.0.0.1:5500/example-graffoo/ontology-full-template.graphml';
+
+    fetch(url)
+    .then(response => response.text())
+    .then((data) => {
+        var graphStr = data;
+        
+        cy.elements().remove();
+        console.log("graph deleted")
+        
+        cy.graphml(graphStr); //carica il grafo graphml
+        console.log("graphml Loaded")
+        
+    });
+
+}
