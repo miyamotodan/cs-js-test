@@ -17,6 +17,12 @@
   <script src="https://cdn.jsdelivr.net/npm/cytoscape-cxtmenu@3.1.0/cytoscape-cxtmenu.min.js"></script>
   <script src="cytoscape-graphml-ddp.js"></script>
 
+  <script src="https://unpkg.com/dagre@0.7.4/dist/dagre.js"></script>
+  <script src="cytoscape-dagre.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/elkjs@0.7.0/lib/elk.bundled.js"></script>
+  <script src="cytoscape-elk.js"></script>
+
   <link rel="stylesheet" href="/style.css" />
 </head>
 
@@ -31,11 +37,15 @@
   <form id='mainform' onchange="setLayout()">
     set layout
     <select id='layouts'>
-      <option value='grid' selected>grid</option>
+      <option value='preset' selected>preset</option>
+      <option value='grid'>grid</option>
       <option value='circle'>circle</option>
       <option value='random'>random</option>
       <option value='cose'>cose</option>
       <option value='cola'>cola</option>
+      <option value='breadthfirst'>breadthfirst</option>
+      <option value='dagre'>dagre</option>
+      <option value='elk'>elk</option> 
     </select>
     set graph
     <select id='graphs' onchange="loadGraphml()">

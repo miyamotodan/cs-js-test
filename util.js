@@ -34,30 +34,48 @@ function setLayout() {
     let name = document.getElementById("layouts").options[i].value;
     console.log(name);
     switch (name) {
+        case 'preset':
         case 'grid':
+        case 'random':
+        case 'cose':
+        case 'cola':
+        case 'breadthfirst':
+        case 'dagre':
             lay = {
-                name: 'grid'
+                name: name,
+                animate: false
+            };
+            break;
+        case 'elk':
+            lay = {
+                name: 'elk',
+                nodeDimensionsIncludeLabels: false, // Boolean which changes whether label dimensions are included when calculating node dimensions
+                fit: true, // Whether to fit
+                padding: 20, // Padding on fit
+                animate: false, // Whether to transition the node positions
+                animateFilter: function (node, i) {
+                    return true;
+                }, // Whether to animate specific nodes when animation is on; non-animated nodes immediately go to their final positions
+                animationDuration: 500, // Duration of animation in ms if enabled
+                animationEasing: undefined, // Easing of animation if enabled
+                transform: function (node, pos) {
+                    return pos;
+                }, // A function that applies a transform to the final node position
+                ready: undefined, // Callback on layoutready
+                stop: undefined, // Callback on layoutstop
+                elk: {
+                    algorithm: 'layered'
+                },
+                priority: function (edge) {
+                    return null;
+                }, // Edges with a non-nil value are skipped when geedy edge cycle breaking is enabled
             };
             break;
         case 'circle':
             lay = {
                 name: 'circle',
-                radius: 100
-            };
-            break;
-        case 'random':
-            lay = {
-                name: 'random'
-            };
-            break;
-        case 'cose':
-            lay = {
-                name: 'cose'
-            };
-            break;
-        case 'cola':
-            lay = {
-                name: 'cola'
+                radius: 100,
+                animate: false
             };
             break;
         default:
@@ -66,21 +84,44 @@ function setLayout() {
     console.log(lay);
 }
 
-function loadGraphml () {
+function loadGraphml() {
 
     url = 'http://127.0.0.1:5500/example-graffoo/ontology-full-template.graphml';
 
-    fetch(url)
-    .then(response => response.text())
-    .then((data) => {
-        var graphStr = data;
-        
-        cy.elements().remove();
-        console.log("graph deleted")
-        
-        cy.graphml(graphStr); //carica il grafo graphml
-        console.log("graphml Loaded")
-        
-    });
+    let i = document.getElementById("graphs").selectedIndex;
+    let name = document.getElementById("graphs").options[i].value;
+    console.log(name);
+
+    switch (name) {
+        case 'demo':
+            cy.elements().remove();
+            console.log("graph deleted");
+
+            cy.add(demo); //carica il grafo graphml
+            console.log("graphml Loaded")
+
+            resetLayout();
+
+            break;
+        case 'graphml':
+            fetch(url)
+                .then(response => response.text())
+                .then((data) => {
+                    var graphStr = data;
+
+                    cy.elements().remove();
+                    console.log("graph deleted")
+
+                    cy.graphml(graphStr); //carica il grafo graphml
+                    console.log("graphml Loaded")
+
+                    resetLayout();
+
+                });
+
+
+            break;
+    }
+
 
 }
